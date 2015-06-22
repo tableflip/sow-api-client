@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/tableflip/sow-api-client/issues"
   },
-  "homepage": "https://github.com/tableflip/sow-api-client#readme"
+  "homepage": "https://github.com/tableflip/sow-api-client#readme",
+  "dependencies": {
+    "boom": "^2.8.0",
+    "request": "^2.58.0"
+  }
 }
