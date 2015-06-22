@@ -1,9 +1,10 @@
 var request = require('request')
 var Boom = require('boom')
 
-module.exports = function (cb) {
+module.exports.get = function (id, cb) {
   request({
-    url: this._url + '/voucher/template/validities',
+    method: 'GET',
+    url: this._url + '/order/' + encodeURIComponent(id),
     json: true
   }, function (err, res, body) {
     if (err) return cb(err)

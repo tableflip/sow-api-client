@@ -1,10 +1,18 @@
 var request = require('request')
 var Boom = require('boom')
 
-module.exports = function (cb) {
+module.exports = function (opts, cb) {
+  if (!cb) {
+    cb = opts
+    opts = {}
+  }
+
+  opts = opts || {}
+
   request({
-    url: this._url + '/voucher/template/validities',
-    json: true
+    url: this._url + '/orders',
+    json: true,
+    qs: opts
   }, function (err, res, body) {
     if (err) return cb(err)
 

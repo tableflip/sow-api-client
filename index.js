@@ -47,5 +47,12 @@ SowApi.prototype.voucherTemplate = require('./voucher-template').get
 SowApi.prototype.createVoucherTemplate = require('./voucher-template').post
 SowApi.prototype.updateVoucherTemplate = require('./voucher-template').patch
 SowApi.prototype.removeVoucherTemplate = require('./voucher-template').delete
+SowApi.prototype.promos = require('./promos')
+SowApi.prototype.promo = require('./promo').get
+SowApi.prototype.createPromo = require('./promo').post
+SowApi.prototype.updatePromo = require('./promo').patch
+SowApi.prototype.removePromo = require('./promo').delete
+SowApi.prototype.orders = require('./orders')
+SowApi.prototype.order = require('./order').get
 
 module.exports = SowApi
