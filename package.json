@@ -1,0 +1,19 @@
+{
+  "name": "sow-api-client",
+  "version": "0.0.0",
+  "description": "Node.js client to the sow-api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tableflip/sow-api-client.git"
+  },
+  "author": "Alan Shaw",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tableflip/sow-api-client/issues"
+  },
+  "homepage": "https://github.com/tableflip/sow-api-client#readme"
+}
