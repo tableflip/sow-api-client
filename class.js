@@ -23,6 +23,7 @@ module.exports.getBySlug = function (slug, opts, cb) {
   }
 
   opts = opts || {}
+  opts.slug = slug
 
   request({
     url: this._url + '/class',
