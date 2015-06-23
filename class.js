@@ -16,6 +16,29 @@ module.exports.get = function (id, cb) {
   })
 }
 
+module.exports.getBySlug = function (slug, opts, cb) {
+  if (!cb) {
+    cb = opts
+    opts = {}
+  }
+
+  opts = opts || {}
+
+  request({
+    url: this._url + '/class',
+    json: true,
+    qs: opts
+  }, function (err, res, body) {
+    if (err) return cb(err)
+
+    if (res.statusCode !== 200) {
+      return cb(Boom.create(res.statusCode, 'Unexpected API response', body))
+    }
+
+    cb(null, body)
+  })
+}
+
 module.exports.post = function (data, cb) {
   request({
     method: 'POST',

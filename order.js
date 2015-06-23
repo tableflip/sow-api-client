@@ -16,3 +16,20 @@ module.exports.get = function (id, cb) {
     cb(null, body)
   })
 }
+
+module.exports.post = function (data, cb) {
+  request({
+    url: this._url + '/order',
+    method: 'POST',
+    json: true,
+    body: data
+  }, function (er, res, body) {
+    if (er) return cb(er)
+
+    if (res.statusCode >= 400) {
+      return cb(Boom.create(res.statusCode, 'Unexpected API response', body))
+    }
+
+    cb(null, body)
+  })
+}

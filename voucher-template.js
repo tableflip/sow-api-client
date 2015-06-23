@@ -16,6 +16,30 @@ module.exports.get = function (id, cb) {
   })
 }
 
+module.exports.getBySlug = function (slug, opts, cb) {
+  if (!cb) {
+    cb = opts
+    opts = {}
+  }
+
+  opts = opts || {}
+  opts.slug = slug
+
+  request({
+    url: this._url + '/voucher-template',
+    json: true,
+    qs: opts
+  }, function (er, res, body) {
+    if (er) return cb(er)
+
+    if (res.statusCode >= 400) {
+      return cb(Boom.create(res.statusCode, 'Unexpected API response', body))
+    }
+
+    cb(null, body)
+  })
+}
+
 module.exports.post = function (data, cb) {
   request({
     method: 'POST',
