@@ -10,6 +10,7 @@ SowApi.prototype.classAttendee = require('./class-attendee').get
 SowApi.prototype.createClassAttendee = require('./class-attendee').post
 SowApi.prototype.updateClassAttendee = require('./class-attendee').patch
 SowApi.prototype.removeClassAttendee = require('./class-attendee').delete
+SowApi.prototype.classMenu = require('./class-menu')
 SowApi.prototype.classTemplates = require('./class-templates')
 SowApi.prototype.classTemplateNames = require('./class-template-names')
 SowApi.prototype.classTags = require('./class-tags')
