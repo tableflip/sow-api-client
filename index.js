@@ -32,6 +32,7 @@ SowApi.prototype.updateClass = require('./class').patch
 SowApi.prototype.removeClass = require('./class').delete
 SowApi.prototype.products = require('./products')
 SowApi.prototype.product = require('./product').get
+SowApi.prototype.productBySlug = require('./product').getBySlug
 SowApi.prototype.createProduct = require('./product').post
 SowApi.prototype.updateProduct = require('./product').patch
 SowApi.prototype.removeProduct = require('./product').delete
