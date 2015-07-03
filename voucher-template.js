@@ -26,7 +26,7 @@ module.exports.getBySlug = function (slug, opts, cb) {
   opts.slug = slug
 
   request({
-    url: this._url + '/voucher-template',
+    url: this._url + '/voucher/template',
     json: true,
     qs: opts
   }, function (er, res, body) {
