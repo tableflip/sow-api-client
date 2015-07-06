@@ -4,7 +4,9 @@ var Boom = require('boom')
 module.exports = function (id, data, cb) {
   request({
     url: this._url + '/class/' + encodeURIComponent(id) + '/copy',
-    json: true
+    method: 'POST',
+    json: true,
+    body: data
   }, function (err, res, body) {
     if (err) return cb(err)
 
