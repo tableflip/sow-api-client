@@ -30,6 +30,7 @@ SowApi.prototype.classBySlug = require('./class').getBySlug
 SowApi.prototype.createClass = require('./class').post
 SowApi.prototype.updateClass = require('./class').patch
 SowApi.prototype.removeClass = require('./class').delete
+SowApi.prototype.copyClass = require('./class-copy')
 SowApi.prototype.products = require('./products')
 SowApi.prototype.product = require('./product').get
 SowApi.prototype.productBySlug = require('./product').getBySlug
