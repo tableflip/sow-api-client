@@ -49,8 +49,6 @@ module.exports.post = function (data, cb) {
   }, function (err, res, body) {
     if (err) return cb(err)
 
-    console.log('body', body)
-
     if (res.statusCode >= 400) {
       return cb(Boom.create(res.statusCode, 'Unexpected API response', body))
     }
@@ -68,8 +66,6 @@ module.exports.patch = function (id, data, cb) {
     body: data
   }, function (err, res, body) {
     if (err) return cb(err)
-
-    console.log(body)
 
     if (res.statusCode >= 400) {
       return cb(Boom.create(res.statusCode, 'Unexpected API response', body))
