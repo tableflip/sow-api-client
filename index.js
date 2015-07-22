@@ -70,6 +70,7 @@ SowApi.prototype.removeVoucherTemplate = require('./voucher-template').delete
 SowApi.prototype.promoTypes = require('./promo-types')
 SowApi.prototype.promos = require('./promos')
 SowApi.prototype.promo = require('./promo').get
+SowApi.prototype.getPromoByCode = require('./promo').getByCode
 SowApi.prototype.createPromo = require('./promo').post
 SowApi.prototype.updatePromo = require('./promo').patch
 SowApi.prototype.removePromo = require('./promo').delete

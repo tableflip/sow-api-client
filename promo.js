@@ -17,6 +17,22 @@ module.exports.get = function (id, cb) {
   })
 }
 
+module.exports.getByCode = function (code, cb) {
+  request({
+    method: 'GET',
+    url: this.url + '/promo?code=' + code,
+    json: true,
+  }, function (err, res, body) {
+    if (err) return cb(err)
+
+    if (res.statusCode >= 400) {
+      return cb(Boom.create(res.statusCode, 'Unexpected API response', body))
+    }
+
+    cb(null, body)
+  })
+}
+
 module.exports.post = function (data, cb) {
   request({
     method: 'POST',
