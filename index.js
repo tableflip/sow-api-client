@@ -76,6 +76,7 @@ SowApi.prototype.removePromo = require('./promo').delete
 SowApi.prototype.summary = require('./summary')
 SowApi.prototype.price = require('./price')
 SowApi.prototype.orders = require('./orders')
+SowApi.prototype.unredeemedOrders = require('./unredeemed-orders')
 SowApi.prototype.order = require('./order').get
 SowApi.prototype.createOrder = require('./order').post
 SowApi.prototype.settle = require('./settle')
