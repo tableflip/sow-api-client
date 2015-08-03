@@ -10,7 +10,7 @@ module.exports = function (opts, cb) {
   opts = opts || {}
 
   request({
-    url: this._url + '/unredeemed-orders',
+    url: this._url + '/orders/unredeemed',
     json: true,
     qs: opts
   }, function (err, res, body) {
