@@ -18,6 +18,10 @@ module.exports.get = function (id, cb) {
 }
 
 module.exports.post = function (data, cb) {
+  Object.keys(data).forEach(function (key) {
+    if (data[key] === undefined || data[key] === '') delete data[key]
+  })
+
   request({
     url: this._url + '/order',
     method: 'POST',
