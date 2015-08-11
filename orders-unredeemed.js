@@ -24,10 +24,18 @@ module.exports = function (opts, cb) {
   })
 }
 
-module.exports.legacy = function (cb) {
+module.exports.legacy = function (opts, cb) {
+  if (!cb) {
+    cb = opts
+    opts = {}
+  }
+
+  opts = opts || {}
+
   request({
     url: this._url + '/orders/unredeemed/legacy',
-    json: true
+    json: true,
+    qs: opts
   }, function (err, res, body) {
     if (err) return cb(err)
 
