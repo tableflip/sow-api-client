@@ -7,7 +7,7 @@ module.exports = function (data, cb) {
   if (data.classes) body.classes = data.classes
   if (data.products) body.products = data.products
   if (data.vouchers) body.vouchers = data.vouchers
-  if (data.voucher) body.voucher = data.voucher
+  if (data.redeemedVouchers) body.redeemedVouchers = data.redeemedVouchers
   if (data.promo) body.promo = data.promo
   if (data.shippingType) body.shippingType = data.shippingType
 
