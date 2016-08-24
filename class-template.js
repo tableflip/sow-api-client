@@ -33,13 +33,18 @@ module.exports.post = function (data, cb) {
   })
 }
 
-module.exports.patch = function (id, data, cb) {
-  console.log(data)
+module.exports.patch = function (id, data, opts, cb) {
+  if (!cb) {
+    cb = opts
+    opts = {}
+  }
+
   request({
     method: 'PATCH',
     url: this._url + '/class/template/' + encodeURIComponent(id),
     json: true,
-    body: data
+    body: data,
+    qs: opts
   }, function (err, res, body) {
     if (err) return cb(err)
 
