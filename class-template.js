@@ -39,6 +39,8 @@ module.exports.patch = function (id, data, opts, cb) {
     opts = {}
   }
 
+  opts = opts || {}
+
   request({
     method: 'PATCH',
     url: this._url + '/class/template/' + encodeURIComponent(id),
