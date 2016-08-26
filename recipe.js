@@ -1,5 +1,5 @@
 var request = require('request')
-var Boom = require('boom')
+var requestCallback = require('./lib/request-callback')
 
 module.exports.get = function (id, cb) {
   request({

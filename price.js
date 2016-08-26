@@ -1,5 +1,5 @@
 var request = require('request')
-var Boom = require('boom')
+var requestCallback = require('./lib/request-callback')
 
 module.exports = function (data, cb) {
   var body = {}
@@ -16,13 +16,5 @@ module.exports = function (data, cb) {
     method: 'POST',
     json: true,
     body: body
-  }, function (er, res, body) {
-    if (er) return cb(er)
-
-    if (res.statusCode >= 400) {
-      return cb(Boom.create(res.statusCode, 'Unexpected API response', body))
-    }
-
-    cb(null, body)
-  })
+  }, requestCallback(cb))
 }

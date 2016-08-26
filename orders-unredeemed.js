@@ -1,5 +1,5 @@
 var request = require('request')
-var Boom = require('boom')
+var requestCallback = require('./lib/request-callback')
 
 module.exports = function (opts, cb) {
   if (!cb) {
@@ -13,15 +13,7 @@ module.exports = function (opts, cb) {
     url: this._url + '/orders/unredeemed',
     json: true,
     qs: opts
-  }, function (err, res, body) {
-    if (err) return cb(err)
-
-    if (res.statusCode >= 400) {
-      return cb(Boom.create(res.statusCode, 'Unexpected API response', body))
-    }
-
-    cb(null, body)
-  })
+  }, requestCallback(cb))
 }
 
 module.exports.legacy = function (opts, cb) {
@@ -36,13 +28,5 @@ module.exports.legacy = function (opts, cb) {
     url: this._url + '/orders/unredeemed/legacy',
     json: true,
     qs: opts
-  }, function (err, res, body) {
-    if (err) return cb(err)
-
-    if (res.statusCode >= 400) {
-      return cb(Boom.create(res.statusCode, 'Unexpected API response', body))
-    }
-
-    cb(null, body)
-  })
+  }, requestCallback(cb))
 }

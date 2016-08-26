@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/tableflip/sow-api-client#readme",
   "dependencies": {
-    "boom": "^2.8.0",
+    "boom-browserify": "^1.0.1",
     "request": "^2.58.0"
   },
   "devDependencies": {
