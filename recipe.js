@@ -6,15 +6,7 @@ module.exports.get = function (id, cb) {
     method: 'GET',
     url: this._url + '/recipe/' + encodeURIComponent(id),
     json: true
-  }, function (err, res, body) {
-    if (err) return cb(err)
-
-    if (res.statusCode >= 400) {
-      return cb(Boom.create(res.statusCode, 'Unexpected API response', body))
-    }
-
-    cb(null, body)
-  })
+  }, requestCallback(cb))
 }
 
 module.exports.post = function (data, cb) {
@@ -23,15 +15,7 @@ module.exports.post = function (data, cb) {
     url: this._url + '/recipe',
     json: true,
     body: data
-  }, function (err, res, body) {
-    if (err) return cb(err)
-
-    if (res.statusCode >= 400) {
-      return cb(Boom.create(res.statusCode, 'Unexpected API response', body))
-    }
-
-    cb(null, body)
-  })
+  }, requestCallback(cb))
 }
 
 module.exports.patch = function (id, data, cb) {
@@ -40,15 +24,7 @@ module.exports.patch = function (id, data, cb) {
     url: this._url + '/recipe/' + encodeURIComponent(id),
     json: true,
     body: data
-  }, function (err, res, body) {
-    if (err) return cb(err)
-
-    if (res.statusCode >= 400) {
-      return cb(Boom.create(res.statusCode, 'Unexpected API response', body))
-    }
-
-    cb(null, body)
-  })
+  }, requestCallback(cb))
 }
 
 module.exports.delete = function (id, cb) {
@@ -56,13 +32,5 @@ module.exports.delete = function (id, cb) {
     method: 'DELETE',
     url: this._url + '/recipe/' + encodeURIComponent(id),
     json: true
-  }, function (err, res, body) {
-    if (err) return cb(err)
-
-    if (res.statusCode >= 400) {
-      return cb(Boom.create(res.statusCode, 'Unexpected API response', body))
-    }
-
-    cb(null, body)
-  })
+  }, requestCallback(cb))
 }

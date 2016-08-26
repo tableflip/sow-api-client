@@ -14,15 +14,7 @@ module.exports = function (data, cb) {
     json: true,
     qs: {published: true},
     body: body
-  }, function (er, res, body) {
-    if (er) return cb(er)
-
-    if (res.statusCode >= 400) {
-      return cb(Boom.create(res.statusCode, 'Unexpected API response', body))
-    }
-
-    cb(null, body)
-  })
+  }, requestCallback(cb))
 }
 
 function objectId (obj) {

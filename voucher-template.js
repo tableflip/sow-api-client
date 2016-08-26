@@ -5,15 +5,7 @@ module.exports.get = function (id, cb) {
   request({
     url: this._url + '/voucher/template/' + encodeURIComponent(id),
     json: true
-  }, function (err, res, body) {
-    if (err) return cb(err)
-
-    if (res.statusCode >= 400) {
-      return cb(Boom.create(res.statusCode, 'Unexpected API response', body))
-    }
-
-    cb(null, body)
-  })
+  }, requestCallback(cb))
 }
 
 module.exports.getBySlug = function (slug, opts, cb) {
@@ -29,15 +21,7 @@ module.exports.getBySlug = function (slug, opts, cb) {
     url: this._url + '/voucher/template',
     json: true,
     qs: opts
-  }, function (er, res, body) {
-    if (er) return cb(er)
-
-    if (res.statusCode >= 400) {
-      return cb(Boom.create(res.statusCode, 'Unexpected API response', body))
-    }
-
-    cb(null, body)
-  })
+  }, requestCallback(cb))
 }
 
 module.exports.post = function (data, cb) {
@@ -46,15 +30,7 @@ module.exports.post = function (data, cb) {
     url: this._url + '/voucher/template',
     json: true,
     body: data
-  }, function (err, res, body) {
-    if (err) return cb(err)
-
-    if (res.statusCode >= 400) {
-      return cb(Boom.create(res.statusCode, 'Unexpected API response', body))
-    }
-
-    cb(null, body)
-  })
+  }, requestCallback(cb))
 }
 
 module.exports.patch = function (id, data, cb) {
@@ -64,15 +40,7 @@ module.exports.patch = function (id, data, cb) {
     url: this._url + '/voucher/template/' + encodeURIComponent(id),
     json: true,
     body: data
-  }, function (err, res, body) {
-    if (err) return cb(err)
-
-    if (res.statusCode >= 400) {
-      return cb(Boom.create(res.statusCode, 'Unexpected API response', body))
-    }
-
-    cb(null, body)
-  })
+  }, requestCallback(cb))
 }
 
 module.exports.delete = function (id, cb) {
@@ -80,13 +48,5 @@ module.exports.delete = function (id, cb) {
     method: 'DELETE',
     url: this._url + '/voucher/template/' + encodeURIComponent(id),
     json: true
-  }, function (err, res, body) {
-    if (err) return cb(err)
-
-    if (res.statusCode >= 400) {
-      return cb(Boom.create(res.statusCode, 'Unexpected API response', body))
-    }
-
-    cb(null, body)
-  })
+  }, requestCallback(cb))
 }
